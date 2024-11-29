@@ -20,7 +20,7 @@ La **Aplicación Escolar** es un sistema sencillo que permite gestionar usuarios
 - **`src`**: Contiene el código fuente (`.java`).
 - **`bin`**: Archivos compilados (`.class`).
 - **`images`**: Recursos gráficos (íconos, fondos).
-- **`IEAL.jar`**: Archivo ejecutable para correr el proyecto.
+- **`dist`**: Archivo ejecutable para correr el proyecto.
 
 ## Ejecución
 1. Descarga o clona el repositorio:
