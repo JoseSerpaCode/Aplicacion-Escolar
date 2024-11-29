@@ -26,3 +26,11 @@ La **Aplicación Escolar** es un sistema sencillo que permite gestionar usuarios
 1. Descarga o clona el repositorio:
    ```bash
    git clone https://github.com/JoseSerpaCode/Aplicacion-Escolar.git
+
+2. Ve a la carpeta del proyecto:
+   ```bash
+   cd Aplicacion-Escolar
+
+3. Ejecuta el archivo .jar:
+   ```bash
+   java -jar dist/IEAL.jar
