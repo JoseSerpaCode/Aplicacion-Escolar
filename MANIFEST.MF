@@ -1,4 +1,0 @@
-Manifest-Version: 1.0
-Created-By: José Serpa - SMP2480
-Main-Class: Bienvenida
-X-COMMENT: Proyecto Sena realizado para el dia 24/11/2023

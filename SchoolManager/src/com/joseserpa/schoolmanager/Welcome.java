@@ -1,29 +1,36 @@
+package com.joseserpa.schoolmanager;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.geom.RoundRectangle2D;
 
-public class Bienvenida extends JFrame implements ActionListener {
+/**
+ * @author joses
+ */
 
-    private JLabel label2, label3;
-    private JButton boton1;
+public class Welcome extends JFrame implements ActionListener {
 
-    public Bienvenida(){
+    private final JLabel label1;
+    private final JLabel label2;
+    private final JButton boton1;
+
+    public Welcome() {
         setLayout(null);
         setTitle("Bienvenido");
         getContentPane().setBackground(new Color(0, 40, 50));
-        setIconImage(RecursosCompartidos.LOGO);
+        setIconImage(Resources.LOGO);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        add(RecursosCompartidos.LOGO_LENIS_LABEL);
+        add(Resources.LOGO_LENIS_LABEL);
 
-        label2 = RecursosCompartidos.createLabel("Institución Educativa", 300, 70, 450, 50);
-        label3 = RecursosCompartidos.createLabel("Antonio Lenis", 360, 130, 450, 50);
+        label1 = Resources.createLabel("Institución Educativa", 300, 70, 450, 50);
+        label2 = Resources.createLabel("Antonio Lenis", 360, 130, 450, 50);
 
-        boton1 = RecursosCompartidos.crearBoton("Continuar", 370, 240, 230, 50, this);
+        boton1 = Resources.crearBoton("Continuar", 370, 240, 230, 50, this);
 
+        add(label1);
         add(label2);
-        add(label3);
         add(boton1);
 
         setBounds(0, 0, 720, 400);
@@ -40,19 +47,20 @@ public class Bienvenida extends JFrame implements ActionListener {
         this.setVisible(false);
     }
 
+    @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == boton1) {
-            cambiarVentana(new Perfil());
+            cambiarVentana(new Profile());
         }
     }
 
     public static void main(String args[]) {
         SwingUtilities.invokeLater(() -> {
-            new Bienvenida();
+            new Welcome();
         });
     }
 }
-
+/*
 class RoundButton extends JButton {
 
     public RoundButton(String text) {
@@ -84,3 +92,4 @@ class RoundButton extends JButton {
         g2.draw(new RoundRectangle2D.Double(0, 0, getWidth() - 1, getHeight() - 1, 20, 20));
     }
 }
+*/

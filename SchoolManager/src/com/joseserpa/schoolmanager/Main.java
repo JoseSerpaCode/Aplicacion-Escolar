@@ -1,8 +1,14 @@
+package com.joseserpa.schoolmanager;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class Principal extends JFrame implements ActionListener {
+/**
+ * @author joses
+*/
+
+public class Main extends JFrame implements ActionListener {
 
     private JMenuBar menubar;
     private JMenu Perfil, Opciones, Notas, Agenda, Tamaño, Color_Fondo;
@@ -13,22 +19,22 @@ public class Principal extends JFrame implements ActionListener {
     private Color colorFondoVentana = new Color(0, 40, 50);
     private JPanel panelBotones;
 
-    public Principal() {
+    public Main() {
 
         setLayout(new BorderLayout());
         setTitle("IE ANTONIO LENIS");
         getContentPane().setBackground(new Color(0, 40, 50));
-        setIconImage(RecursosCompartidos.LOGO);
+        setIconImage(Resources.LOGO);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         menubar = new JMenuBar();
         menubar.setBackground(new Color(0, 22, 30));
         setJMenuBar(menubar);
 
-	Perfil = RecursosCompartidos.menu(" Perfil ", menubar);
-        Opciones = RecursosCompartidos.menu(" Opciones ", menubar);
-        Notas = RecursosCompartidos.menu(" Notas ", menubar);
-        Agenda = RecursosCompartidos.menu(" Agenda ", menubar);
+	Perfil = Resources.menu(" Perfil ", menubar);
+        Opciones = Resources.menu(" Opciones ", menubar);
+        Notas = Resources.menu(" Notas ", menubar);
+        Agenda = Resources.menu(" Agenda ", menubar);
 
             perfilItem = new JMenuItem("Ver perfil");
             perfilItem.addActionListener(this);
@@ -78,9 +84,9 @@ public class Principal extends JFrame implements ActionListener {
             menubar.add(Box.createHorizontalGlue());
             menubar.add(IEAL);
 
-        botonNovedades = RecursosCompartidos.crearBoton("Novedades", this);
-        botonRedesSociales = RecursosCompartidos.crearBoton("Redes Sociales", this);
-        botonQuejas = RecursosCompartidos.crearBoton("Quejas/Reclamaciones", this);
+        botonNovedades = Resources.crearBoton("Novedades", this);
+        botonRedesSociales = Resources.crearBoton("Redes Sociales", this);
+        botonQuejas = Resources.crearBoton("Quejas/Reclamaciones", this);
 
         panelBotones = new JPanel();
         panelBotones.setLayout(new BoxLayout(panelBotones, BoxLayout.Y_AXIS));
@@ -143,7 +149,7 @@ public class Principal extends JFrame implements ActionListener {
     }
 
     private void mostrarSiguienteImagen() {
-        ImageIcon siguienteImagen = RecursosCompartidos.obtenerSiguienteImagen();
+        ImageIcon siguienteImagen = Resources.obtenerSiguienteImagen();
         if (siguienteImagen != null) {
             imagenLabel.setIcon(siguienteImagen);
             ajustarTamanioImagen(siguienteImagen);
@@ -181,15 +187,15 @@ public class Principal extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         if (e.getSource() == perfilItem) {
-            JOptionPane.showMessageDialog(Principal.this, "Realizado por JOSÉ SERPA MEDINA y DAYANA PÉREZ 2023");
+            JOptionPane.showMessageDialog(Main.this, "Realizado por JOSÉ SERPA MEDINA y DAYANA PÉREZ 2023");
         }
 
         if (e.getSource() == notasitem) {
-            JOptionPane.showMessageDialog(Principal.this, "Ya tienes el año ganado, ¿que más vas a mirar?");
+            JOptionPane.showMessageDialog(Main.this, "Ya tienes el año ganado, ¿que más vas a mirar?");
         }
 
         if (e.getSource() == agendaitem) {
-            JOptionPane.showMessageDialog(Principal.this, "Compa el año se acabó, ya no hay agenda");
+            JOptionPane.showMessageDialog(Main.this, "Compa el año se acabó, ya no hay agenda");
         }
 
         if (e.getSource() == Tamaño1) {
@@ -203,13 +209,13 @@ public class Principal extends JFrame implements ActionListener {
         } else if (e.getSource() == Color2) {
             colorFondoVentana = new Color(255, 255, 255);
         } else if (e.getSource() == salir) {
-            cambiarVentana(new Bienvenida());
+            cambiarVentana(new Welcome());
         } else if (e.getSource() == botonQuejas) {
-            cambiarVentana(new Quejas());
+            cambiarVentana(new Complaints());
         } else if (e.getSource() == botonRedesSociales) {
-            JOptionPane.showMessageDialog(Principal.this, "Las redes sociales están como Nequi, Caídas");
+            JOptionPane.showMessageDialog(Main.this, "Las redes sociales están como Nequi, Caídas");
         } else if (e.getSource() == botonNovedades) {
-            JOptionPane.showMessageDialog(Principal.this, "No hay Novedades actualmente");
+            JOptionPane.showMessageDialog(Main.this, "No hay Novedades actualmente");
         }
 
         getContentPane().setBackground(colorFondoVentana);
@@ -230,8 +236,8 @@ public class Principal extends JFrame implements ActionListener {
 
     public static void main(String args[]) {
         SwingUtilities.invokeLater(() -> {
-            new Principal();
-            new Quejas();
+            new Main();
+            new Complaints();
         });
     }
 }

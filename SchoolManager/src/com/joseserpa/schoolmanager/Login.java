@@ -1,26 +1,32 @@
+package com.joseserpa.schoolmanager;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Inicio_Sesion extends JFrame implements ActionListener {
+/**
+ * @author joses
+*/
+
+public class Login extends JFrame implements ActionListener {
 
     private JTextField campoUsuario;
     private JPasswordField campoContrasena;
     private JButton botonIniciarSesion, botonRegresar;
 
-    public Inicio_Sesion() {
+    public Login() {
         setLayout(null);
         setTitle("Iniciar Sesión");
         getContentPane().setBackground(new Color(0, 40, 50));
-        setIconImage(RecursosCompartidos.LOGO);
+        setIconImage(Resources.LOGO);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        add(RecursosCompartidos.LOGO_LENIS_LABEL);
+        add(Resources.LOGO_LENIS_LABEL);
 
-        JLabel labelBienvenido = RecursosCompartidos.createLabel("BIENVENIDO!", 300, 10, 350, 70);
-        JLabel labelUsuario = RecursosCompartidos.createLabel_Inicio_Sesion("Usuario:", 300, 90, 350, 30);
-        JLabel labelContrasena = RecursosCompartidos.createLabel_Inicio_Sesion("Contraseña:", 300, 170, 350, 30);
+        JLabel labelBienvenido = Resources.createLabel("BIENVENIDO!", 300, 10, 350, 70);
+        JLabel labelUsuario = Resources.createLabel_Inicio_Sesion("Usuario:", 300, 90, 350, 30);
+        JLabel labelContrasena = Resources.createLabel_Inicio_Sesion("Contraseña:", 300, 170, 350, 30);
 
         campoUsuario = new JTextField("");
         campoUsuario.setBounds(300, 125, 350, 30);
@@ -30,8 +36,8 @@ public class Inicio_Sesion extends JFrame implements ActionListener {
         campoContrasena.setBounds(300, 205, 350, 30);
         campoContrasena.setFont(new Font("Arial", Font.BOLD, 15));
 
-        botonIniciarSesion = RecursosCompartidos.crearBoton("Ingresar", 300, 260, 150, 30, this);
-        botonRegresar = RecursosCompartidos.crearBoton("Regresar", 500, 260, 150, 30, this);
+        botonIniciarSesion = Resources.crearBoton("Ingresar", 300, 260, 150, 30, this);
+        botonRegresar = Resources.crearBoton("Regresar", 500, 260, 150, 30, this);
 
         add(labelBienvenido);
         add(labelUsuario);
@@ -42,6 +48,7 @@ public class Inicio_Sesion extends JFrame implements ActionListener {
         add(botonRegresar);
     }
 
+    @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == botonIniciarSesion) {
             String textoUsuario = campoUsuario.getText().trim();
@@ -50,12 +57,12 @@ public class Inicio_Sesion extends JFrame implements ActionListener {
             if (textoUsuario.equals("") || textoContrasena.equals("")) {
                 JOptionPane.showMessageDialog(null, "Debes ingresar los datos");
             } else {
-                cambiarVentana(new Principal());
+                cambiarVentana(new Main());
             }
         }
 
         if (e.getSource() == botonRegresar) {
-            cambiarVentana(new Perfil());
+            cambiarVentana(new Profile());
         }
     }
 
@@ -69,7 +76,7 @@ public class Inicio_Sesion extends JFrame implements ActionListener {
 
     public static void main(String args[]) {
         SwingUtilities.invokeLater(() -> {
-            new Inicio_Sesion();
+            new Login();
         });
     }
 }

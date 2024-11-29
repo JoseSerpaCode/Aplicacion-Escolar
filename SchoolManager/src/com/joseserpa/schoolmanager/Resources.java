@@ -1,3 +1,5 @@
+package com.joseserpa.schoolmanager;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -7,11 +9,15 @@ import javax.swing.JButton;
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
 
-public class RecursosCompartidos {
+/**
+ * @author joses
+ */
+
+public class Resources {
 
     // Elementos compartidos
-    public static final Image LOGO = new ImageIcon("images/LogoLenisremovebg.png").getImage();
-    public static final ImageIcon LOGO_LENIS = new ImageIcon(RecursosCompartidos.class.getResource("/images/LogoLenisremovebg.png"));
+    public static final Image LOGO = new ImageIcon("/images/LogoLenisremovebg.png").getImage();
+    public static final ImageIcon LOGO_LENIS = new ImageIcon(Resources.class.getResource("/images/LogoLenisremovebg.png"));
     public static final JLabel LOGO_LENIS_LABEL = new JLabel("Texto del JLabel con logo");
 
     private static List<ImageIcon> imagenes;
@@ -19,11 +25,11 @@ public class RecursosCompartidos {
 
     static {
         // Ruta de las imágenes
-        String[] nombresImagenes = {"images/principal1(recortada).jpg", "images/principal2(recortada).jpg", "images/principal3(recortada).jpg"};
+        String[] nombresImagenes = {"/images/principal1(recortada).jpg", "/images/principal2(recortada).jpg", "/images/principal3(recortada).jpg"};
         imagenes = new ArrayList<>();
 
         for (String nombre : nombresImagenes) {
-            ImageIcon imagen = new ImageIcon(RecursosCompartidos.class.getResource(nombre));
+            ImageIcon imagen = new ImageIcon(Resources.class.getResource(nombre));
             imagenes.add(imagen);
         }
     }
@@ -49,7 +55,6 @@ public class RecursosCompartidos {
     }
 
     // Método para crear un botón redondeado configurado
-
     public static RoundButton crearBoton(String texto, ActionListener actionListener) {
         RoundButton boton = new RoundButton(texto);
         configurarBoton(boton);
@@ -58,7 +63,6 @@ public class RecursosCompartidos {
     }
 
     // Método para crear un botón de inicio de sesión configurado
-
     public static RoundButton crearBoton(String texto, int x, int y, int width, int height, ActionListener actionListener) {
         RoundButton boton = new RoundButton(texto);
         configurarBoton(boton);
@@ -68,7 +72,6 @@ public class RecursosCompartidos {
     }
 
     // Método privado para configurar la apariencia común de los botones
-
     private static void configurarBoton(RoundButton boton) {
         boton.setBackground(new Color(242, 175, 14));
         boton.setFont(new Font("Arial", Font.BOLD, 20));
@@ -76,7 +79,6 @@ public class RecursosCompartidos {
     }
 
     // Label estructura General
-
     public static JLabel createLabel(String text, int x, int y, int width, int height) {
         JLabel label = new JLabel(text);
         label.setFont(new Font("Arial", Font.BOLD, 40));
@@ -86,7 +88,6 @@ public class RecursosCompartidos {
     }
 
     // Label estructura Inicio de Sesión
-
     public static JLabel createLabel_Inicio_Sesion(String text, int x, int y, int width, int height) {
         JLabel label = new JLabel(text);
         label.setFont(new Font("Arial", 2, 30));
@@ -96,7 +97,6 @@ public class RecursosCompartidos {
     }
 
     // JMenu Estructura General
-
     public static JMenu menu(String texto, JMenuBar menubar) {
         JMenu menu = new JMenu(texto);
         menu.setForeground(Color.WHITE);
@@ -107,11 +107,11 @@ public class RecursosCompartidos {
 
     public static void main(String args[]) {
         SwingUtilities.invokeLater(() -> {
-            new Bienvenida();
-            new Perfil();
-            new Inicio_Sesion();
-            new Principal();
-            new Quejas();
+            new Welcome();
+            new Profile();
+            new Login();
+            new Main();
+            new Complaints();
         });
     }
 }

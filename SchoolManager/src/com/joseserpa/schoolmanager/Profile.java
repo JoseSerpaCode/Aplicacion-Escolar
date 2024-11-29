@@ -1,29 +1,35 @@
+package com.joseserpa.schoolmanager;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Perfil extends JFrame implements ActionListener {
+/**
+ * @author joses
+ */
+
+public class Profile extends JFrame implements ActionListener {
 
     private JButton botonEstudiante, botonProfesor, botonRegresar;
 
-    public Perfil() {
+    public Profile() {
         setLayout(null);
         setTitle("Perfil");
         getContentPane().setBackground(new Color(0, 40, 50));
-        setIconImage(RecursosCompartidos.LOGO);
+        setIconImage(Resources.LOGO);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        botonEstudiante = RecursosCompartidos.crearBoton("Estudiante", 110, 240, 150, 30, this);
-        botonProfesor = RecursosCompartidos.crearBoton("Profesor", 445, 240, 150, 30, this);
-        botonRegresar = RecursosCompartidos.crearBoton("Regresar", 280, 310, 150, 30, this);
+        botonEstudiante = Resources.crearBoton("Estudiante", 110, 240, 150, 30, this);
+        botonProfesor = Resources.crearBoton("Profesor", 445, 240, 150, 30, this);
+        botonRegresar = Resources.crearBoton("Regresar", 280, 310, 150, 30, this);
 
         add(botonEstudiante);
         add(botonProfesor);
         add(botonRegresar);
 
-        mostrarImagen(new ImageIcon("images/Lapiz_icono_2_sinfondo.png"), 95, 50);
-        mostrarImagen(new ImageIcon("images/Docente2_sinfondo.png"), 430, 50);
+        mostrarImagen(new ImageIcon("/images/Lapiz_icono_2_sinfondo.png"), 95, 50);
+        mostrarImagen(new ImageIcon("/images/Docente2_sinfondo.png"), 430, 50);
     }
 
     private void mostrarImagen(ImageIcon imagen, int x, int y) {
@@ -32,13 +38,14 @@ public class Perfil extends JFrame implements ActionListener {
         add(label);
     }
 
+    @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == botonEstudiante || e.getSource() == botonProfesor) {
-            cambiarVentana(new Inicio_Sesion());
+            cambiarVentana(new Login());
         }
 
         if (e.getSource() == botonRegresar) {
-            cambiarVentana(new Bienvenida());
+            cambiarVentana(new Welcome());
         }
     }
 
@@ -52,7 +59,7 @@ public class Perfil extends JFrame implements ActionListener {
 
     public static void main(String args[]) {
         SwingUtilities.invokeLater(() -> {
-            new Perfil();
+            new Profile();
         });
     }
 }

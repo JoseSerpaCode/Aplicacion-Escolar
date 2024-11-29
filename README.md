@@ -20,9 +20,17 @@ La **Aplicación Escolar** es un sistema sencillo que permite gestionar usuarios
 - **`src`**: Contiene el código fuente (`.java`).
 - **`bin`**: Archivos compilados (`.class`).
 - **`images`**: Recursos gráficos (íconos, fondos).
-- **`IEAL.jar`**: Archivo ejecutable para correr el proyecto.
+- **`dist`**: Archivo ejecutable para correr el proyecto.
 
 ## Ejecución
 1. Descarga o clona el repositorio:
    ```bash
    git clone https://github.com/JoseSerpaCode/Aplicacion-Escolar.git
+
+2. Ve a la carpeta del proyecto:
+   ```bash
+   cd Aplicacion-Escolar
+
+3. Ejecuta el archivo .jar:
+   ```bash
+   java -jar dist/IEAL.jar

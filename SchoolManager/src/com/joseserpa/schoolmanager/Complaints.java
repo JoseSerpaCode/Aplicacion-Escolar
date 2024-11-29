@@ -1,8 +1,14 @@
+package com.joseserpa.schoolmanager;
+
 import java.awt.event.*;
 import javax.swing.*;
 import java.awt.*;
 
-public class Quejas extends JFrame implements ActionListener {
+/**
+ * @author joses
+*/
+
+public class Complaints extends JFrame implements ActionListener {
 
     private JTextArea textarea1;
     private JScrollPane scrollpane1;
@@ -11,11 +17,11 @@ public class Quejas extends JFrame implements ActionListener {
 
     String texto = "";
 
-    public Quejas() {
+    public Complaints() {
         setLayout(null);
         setTitle("Quejas y Reclamaciones");
         getContentPane().setBackground(new Color(0, 40, 50));
-        setIconImage(RecursosCompartidos.LOGO);
+        setIconImage(Resources.LOGO);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         textarea1 = new JTextArea("");
@@ -29,19 +35,20 @@ public class Quejas extends JFrame implements ActionListener {
         labelQueja.setForeground(Color.WHITE);
 
 
-        botonEnviar = RecursosCompartidos.crearBoton("Enviar", 430, 230, 150, 30, this);
-        botonRegresar = RecursosCompartidos.crearBoton("Regresar", 430, 290, 150, 30, this);
+        botonEnviar = Resources.crearBoton("Enviar", 430, 230, 150, 30, this);
+        botonRegresar = Resources.crearBoton("Regresar", 430, 290, 150, 30, this);
 
         add(labelQueja);
         add(botonEnviar);
         add(botonRegresar);
     }
 
+    @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == botonRegresar) {
-            cambiarVentana(new Principal());
+            cambiarVentana(new Main());
         } else if (e.getSource() == botonEnviar) {
-            JOptionPane.showMessageDialog(Quejas.this, "Enviado Correctamente");
+            JOptionPane.showMessageDialog(Complaints.this, "Enviado Correctamente");
             textarea1.setText("");
         }
     }
@@ -56,7 +63,7 @@ public class Quejas extends JFrame implements ActionListener {
 
     public static void main(String args[]) {
         SwingUtilities.invokeLater(() -> {
-            new Quejas();
+            new Complaints();
         });
     }
 }
