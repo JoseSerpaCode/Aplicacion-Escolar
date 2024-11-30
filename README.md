@@ -6,6 +6,9 @@
 
 **SchoolManager** es un sistema sencillo que permite gestionar usuarios, perfiles y otras funcionalidades básicas de una plataforma educativa. 🏫
 
+## Licencia 🛡️
+Este proyecto está bajo la licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
+
 ## Características ✨
 - **Inicio de sesión** 🔐: Permite autenticarse con un usuario y contraseña.
 - **Gestión de perfiles** 👤: Maneja diferentes tipos de usuarios (estudiantes, profesores).
