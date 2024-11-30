@@ -31,7 +31,7 @@ Este proyecto fue llevado a **NetBeans** para organizar mejor la estructura del 
 
 2. **Ve a la carpeta del proyecto**:
    ```bash
-   cd Aplicacion-Escolar
+   cd SchoolManager
 
 3. **Ejecuta el archivo .jar**:
    ```bash
